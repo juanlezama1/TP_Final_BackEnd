@@ -1,0 +1,15 @@
+{
+  "name": "back_tpfinal",
+  "version": "1.0.0",
+  "description": "BackEnd - TP Final",
+  "main": "SRC/my_app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/juanlezama1/TP_Final_BackEnd"
+  },
+  "author": "Juan Pablo Lezama",
+  "license": "ISC"
+}
