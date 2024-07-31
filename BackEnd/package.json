@@ -1,15 +1,25 @@
 {
   "name": "back_tpfinal",
   "version": "1.0.0",
+  "type": "module",
   "description": "BackEnd - TP Final",
   "main": "SRC/my_app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devNodemon": "nodemon ./SRC/my_app.js"
   },
   "repository": {
     "type": "git",
     "url": "github.com/juanlezama1/TP_Final_BackEnd"
   },
   "author": "Juan Pablo Lezama",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2",
+    "winston": "^3.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }

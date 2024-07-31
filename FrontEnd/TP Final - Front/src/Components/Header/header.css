@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/* ESTILOS EN HEADER */
+.header_menues {
+  height: 105px;
+  width: 100%;
+  background-color: whitesmoke;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0;
+}
+
+.header_index {
+  height: 105px;
+  width: 100%;
+  background: linear-gradient(to right, grey, whitesmoke);
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0;
+}
+@media (max-width: 991px) {
+  .header_index {
+    justify-content: center;
+  }
+}
+
+.header_image_link, .header_image {
+  height: 100%;
+}
+
+@keyframes movimiento_logo_naturally {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  100% {
+    transform: translate(20px, 0px);
+  }
+}
+@keyframes movimiento_logo_naturally_mobile {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(-12px, 0px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(12px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+.header_image:hover {
+  animation-name: movimiento_logo_naturally;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+
+@media (max-width: 991px) {
+  .header_image {
+    animation-name: movimiento_logo_naturally_mobile;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+  }
+}
+.header_navbar {
+  height: 100%;
+}
+@media (max-width: 991px) {
+  .header_navbar {
+    display: none;
+  }
+}
+
+.header_navbar_list {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+}
+
+.header_navbar_item {
+  font-size: 15px;
+  color: grey !important; 
+  text-decoration: none;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.header_navbar_item:hover {
+  display: inline-block;
+  transform: scale(1.13);
+  transition: transform 0.2s ease-in-out;
+  color: green;
+}
+
+.header_dropdown {
+  height: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+@media (min-width: 992px) {
+  .header_dropdown {
+    display: none;
+  }
+}
+
+.header_dropdown_icon {
+  height: 100%;
+  width: 100%;
+}
+
+.header_dropdown_button, .header_dropdown_button.show, .header_dropdown_button:hover, .header_dropdown_button:focus,
+.header_dropdown_button:active, .btn:first-child:active {
+  background-color: rgb(154, 206, 75);
+}
+
+.header_dropdown_button:hover {
+  background-color: rgb(152, 240, 21);
+}
+
+.dropdown-menu {
+  background-color: whitesmoke;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu_item {
+  text-decoration: none;
+  color: grey;
+}
