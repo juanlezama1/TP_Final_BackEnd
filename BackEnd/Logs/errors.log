@@ -10,3 +10,5 @@ error: Imposible leer los productos de la base de datos!
 error: Imposible leer los productos de la base de datos!
 error: Imposible leer los productos de la base de datos!
 error: Imposible leer los productos de la base de datos!
+error: Error al eliminar los usuarios sin actividad
+error: Error al eliminar los usuarios sin actividad all_users is not defined {"stack":"ReferenceError: all_users is not defined\n    at deleteOldUsers (file:///C:/Users/migration/Desktop/TP%20FINAL/TP_Final_BackEnd/BackEnd/SRC/controllers/usersController.js:12:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///C:/Users/migration/Desktop/TP%20FINAL/TP_Final_BackEnd/BackEnd/SRC/routes/usersRouter.js:27:9"}
