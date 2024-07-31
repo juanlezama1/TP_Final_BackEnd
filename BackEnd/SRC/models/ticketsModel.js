@@ -37,4 +37,4 @@ ticketSchema.pre('find', async function(next){
 })
 
 // Exporto este prototipo en mi colección
-export const ticketModel = model ("tickets", ticketSchema)
+export const ticketsModel = model ("tickets", ticketSchema)

@@ -34,4 +34,5 @@ cartSchema.pre(/^find/, async function (next) {
 })
 
 // Exporto este prototipo en mi colección
-export const cartModel = model ("carts", cartSchema)
+const cartsModel = model ("carts", cartSchema)
+export default cartsModel

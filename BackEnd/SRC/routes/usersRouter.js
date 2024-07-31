@@ -1,5 +1,6 @@
 import { Router } from "express"
 import {getAllUsers} from "../controllers/usersController.js"
+import {logger} from '../utils/logger.js'
 
 const usersRouter = Router ()
 

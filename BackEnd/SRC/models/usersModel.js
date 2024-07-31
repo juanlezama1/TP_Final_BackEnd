@@ -1,5 +1,5 @@
 import {Schema, model} from "mongoose"
-import {cartModel} from "./carts.js"
+import {createCart} from '../controllers/cartsController.js'
 
 // Prototipo de un usuario en la DB
 const userSchema = new Schema ({
@@ -64,5 +64,5 @@ userSchema.pre("find", async function (next) {
 })
 
 // Exporto este prototipo en mi colección
-const userModel = model ("users", userSchema)
-export default userModel
+const usersModel = model ("users", userSchema)
+export default usersModel

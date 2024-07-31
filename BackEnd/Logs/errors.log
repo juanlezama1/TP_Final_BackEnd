@@ -1,0 +1,12 @@
+error: Imposible obtener los usuarios de la base de datos!
+error: Imposible obtener los usuarios de la base de datos!
+error: Imposible obtener los usuarios de la base de datos!
+error: Imposible obtener los usuarios de la base de datos! Schema hasn't been registered for model "carts".
+Use mongoose.model(name, schema) {"stack":"MissingSchemaError: Schema hasn't been registered for model \"carts\".\nUse mongoose.model(name, schema)\n    at Connection.model (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\connection.js:1218:13)\n    at _getModelFromConn (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:569:15)\n    at addModelNamesToMap (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:496:17)\n    at getModelsMapForPopulate (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:200:7)\n    at populate (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\model.js:4183:21)\n    at _populate (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\model.js:4143:5)\n    at C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\model.js:4115:5\n    at new Promise (<anonymous>)\n    at Function.populate (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\model.js:4114:10)\n    at model.Query._find (C:\\Users\\migration\\Desktop\\TP FINAL\\TP_Final_BackEnd\\BackEnd\\node_modules\\mongoose\\lib\\query.js:2347:20)"}
+error: Imposible leer los productos de la base de datos!
+error: Imposible leer los productos de la base de datos!
+error: Imposible leer los productos de la base de datos!
+error: Imposible leer los productos de la base de datos!
+error: Imposible leer los productos de la base de datos!
+error: Imposible leer los productos de la base de datos!
+error: Imposible leer los productos de la base de datos!
