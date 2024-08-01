@@ -1,5 +1,5 @@
 import { Router } from "express"
-import {getAllUsers, deleteOldUsers} from "../controllers/usersController.js"
+import {getAllUsers, deleteOldUsers, getUserIdByEmail, sendResetPSWEmail} from "../controllers/usersController.js"
 import {logger} from '../utils/logger.js'
 
 const usersRouter = Router ()
@@ -33,6 +33,28 @@ usersRouter.delete('/', async (req, res) => {
     {
         req.logger.error("Error al eliminar los usuarios sin actividad")
         res.status(500).send("Error al eliminar los usuarios sin actividad")
+    }
+})
+
+// Cliente envía su email mediante formulario de "Olvidó su contraseña?"
+usersRouter.post('/resetPSW', async (req, res) => {
+
+    const {email} = req.body
+
+    try {
+        const user_id = await getUserIdByEmail(email)
+        if (!user_id) // Si no existe ningún usuario con ese email
+            return res.status(400).send("Usuario no existente!")
+           
+        await sendResetPSWEmail (email)
+        res.status(200).send("Correo de recuperación enviado correctamente!")
+    }
+
+    catch (error)
+
+    {
+        req.logger.error("Error al enviar el correo de recuperación")
+        res.status(500).send("Error al enviar el correo de recuperación")
     }
 })
 
