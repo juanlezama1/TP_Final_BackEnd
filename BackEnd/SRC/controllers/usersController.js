@@ -2,6 +2,8 @@ import userModel from "../models/usersModel.js"
 import email_transport from '../utils/emailTransport.js'
 import {readFileSync} from 'fs'
 import __dirname from '../path.js'
+import { generate_PSWReset_Token } from "../utils/jwt.js"
+import config_vars from "../dotenv.js"
 
 // Obtengo todos los usuarios
 const getAllUsers = async () => {

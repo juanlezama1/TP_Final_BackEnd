@@ -18,3 +18,5 @@ error: Error al eliminar los usuarios sin actividad
 error: Error al eliminar los usuarios sin actividad
 error: Error al eliminar los usuarios sin actividad
 error: Error al eliminar los usuarios sin actividad
+error: Error al enviar el correo de recuperación
+error: Error al enviar el correo de recuperación config_vars is not defined {"stack":"ReferenceError: config_vars is not defined\n    at sendResetPSWEmail (file:///C:/Users/lezam/Desktop/Desaf%C3%ADos/Proyecto%20Final/BackEnd/SRC/controllers/usersController.js:87:18)\n    at file:///C:/Users/lezam/Desktop/Desaf%C3%ADos/Proyecto%20Final/BackEnd/SRC/routes/usersRouter.js:49:15\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}
