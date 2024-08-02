@@ -1,5 +1,5 @@
 import { Router } from "express"
-import {getAllUsers, deleteOldUsers, getUserIdByEmail, sendResetPSWEmail} from "../controllers/usersController.js"
+import {getAllUsers, deleteOldUsers, getUserByEmail, sendResetPSWEmail} from "../controllers/usersController.js"
 import {logger} from '../utils/logger.js'
 
 const usersRouter = Router ()
@@ -42,11 +42,11 @@ usersRouter.post('/resetPSW', async (req, res) => {
     const {email} = req.body
 
     try {
-        const user_id = await getUserIdByEmail(email)
-        if (!user_id) // Si no existe ningún usuario con ese email
+        const user = await getUserByEmail(email)
+        if (!user) // Si no existe ningún usuario con ese email
             return res.status(400).send("Usuario no existente!")
            
-        await sendResetPSWEmail (email)
+        await sendResetPSWEmail (email, user.first_name)
         res.status(200).send("Correo de recuperación enviado correctamente!")
     }
 

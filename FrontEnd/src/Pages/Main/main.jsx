@@ -2,10 +2,6 @@ import Products_carousel from "../../Components/Products_carousel/products_carou
 
 const Main = () => {
 
-    fetch()
-
-    
-
     return (
         <Products_carousel/>
     )

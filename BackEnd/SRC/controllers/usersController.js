@@ -74,18 +74,18 @@ const deleteOldUsers = async () => {
     }
 }
 
-// Encuentra el ID del usuario asociado a un email
-const getUserIdByEmail = async (email) => {
+// Encuentra el usuario asociado a un email
+const getUserByEmail = async (email) => {
     const user = await userModel.findOne({email})
-    return user._id
+    return user
 }
 
 // Envía un correo de blanqueo de contraseña
 // Precondición: El email está confirmado que es real y existe en la DB
 
-const sendResetPSWEmail = async (email) => {
+const sendResetPSWEmail = async (email, name) => {
 
-    const PORT = config_vars.port
+    const FRONT_PORT = config_vars.front_port
 
     // Leo el HTML Base de blanqueo de contraseña
     const original_html = readFileSync(__dirname + '/public/htmls/forgetPassword.html', 'utf-8')
@@ -97,8 +97,13 @@ const sendResetPSWEmail = async (email) => {
     const user_PSWReset_token = generate_PSWReset_Token(email)
 
     // Reemplazo en el HTML el link para este usuario en particular (incluyendo su token)
-    const changePswLink = `http://localhost:${PORT}/api/users/changePSW?token=${user_PSWReset_token}`
-    const custom_html = original_html.replace("LINK_AL_USUARIO", changePswLink)
+    const changePswLink = `http://localhost:${FRONT_PORT}/changePSW?token=${user_PSWReset_token}` // Ruta de Front
+    let custom_html = original_html.replace("LINK_AL_USUARIO", changePswLink)
+    
+    // Reemplazo en el HTML el nombre del usuario
+    custom_html = custom_html.replace("NOMBRE_USUARIO", name)
+
+    // Finalmente el link quedará apuntando, por GET, al servidor Front donde luego se llamará al Back para validar el Token. 
 
     // Mando el email
     await email_transport.sendMail({
@@ -146,4 +151,4 @@ const sendResetPSWEmail = async (email) => {
     })
 }
 
-export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserIdByEmail, sendResetPSWEmail}
+export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserByEmail, sendResetPSWEmail}

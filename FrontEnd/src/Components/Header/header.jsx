@@ -1,7 +1,11 @@
 import React from 'react';
 import { Dropdown, Menu } from 'antd';
-import './header.css';
 import { Link } from 'react-router-dom';
+import './header.css';
+
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/esm/Container';
 
 const items_datosmercado = [
   {
@@ -39,8 +43,11 @@ const items_herramientas = [
 const Header = () => {
 
   return (
-    <header className="row">
-      <div className="header_index col-12">
+    <>
+    <Container fluid className='p-0 overflow-hidden'>
+    <Row>
+      <Col className='header-index'>
+      <div className="header_index">
         <Link className='header_image_link' to={'/'}>
           <img
             className="header_image rounded"
@@ -81,7 +88,10 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-    </header>
+      </Col>
+    </Row>
+    </Container>
+    </>
   );
 };
 

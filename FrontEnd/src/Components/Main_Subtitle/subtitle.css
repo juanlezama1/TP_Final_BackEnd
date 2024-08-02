@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('/public/fonts/Inter.ttf') format('truetype');
+  }
+
+.subtitle_main {
+    text-align: center;
+    font-family: 'Inter';
+    color: rgb(88, 102, 126);
+    font-size: 23px;
+}

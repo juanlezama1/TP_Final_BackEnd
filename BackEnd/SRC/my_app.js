@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 import __dirname from './path.js'
 import indexRouter from '../SRC/routes/indexRouter.js'
 import {logger_middleware, logger} from './utils/logger.js'
+import cors from 'cors'
 
 const my_app = express ()
 const PORT = config_vars.port
@@ -14,6 +15,11 @@ mongoose.connect(config_vars.mongo_db_url)
     .catch(error => logger.fatal("Error al conectarse a la DB: ", error))
 
 // Middlewares
+my_app.use(cors({
+    origin: '*', // Permite solicitudes desde cualquier origen
+    methods: 'GET,POST,PUT,DELETE', // Permite los métodos especificados
+  }))
+
 my_app.use(logger_middleware)
 my_app.use(express.json())
 

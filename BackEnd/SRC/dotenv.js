@@ -13,7 +13,8 @@ const config_vars = {
     email_port: process.env.EMAIL_PORT,
     email_user: process.env.EMAIL_USER,
     email_password: process.env.EMAIL_PASSWORD,
-    URL_jwt_secret: process.env.URL_JWT_SECRET
+    URL_jwt_secret: process.env.URL_JWT_SECRET,
+    front_port: process.env.FRONT_PORT
 }
 
 export default config_vars
