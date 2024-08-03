@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
       setVisibleField(false)
       setSubtitleValue("Te enviamos las instrucciones de recuperación por e-mail")
       setTitleValue("Correo Electrónico Enviado!")
-      toast.warn("Aclaración: Revisar el SPAM!", {position: 'bottom-right', autoClose: 6500})
+      toast.warn("Revisar casilla de SPAM", {position: 'bottom-right', autoClose: 6500})
     };
 
     return (

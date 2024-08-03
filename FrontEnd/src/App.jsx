@@ -5,6 +5,7 @@ import ForgetPSW from './Pages/ForgetPSW/forgetPSW'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ChangePSW from './Pages/ChangePSW/changePSW'
 import NotFound from './Pages/NotFound/notFound'
+import SuccessPSWChange from './Pages/SuccessPSWChange/successPSWChange'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Route exact path = "/" element={<Main />} />
             <Route exact path = "/forgetPSW" element={<ForgetPSW />} />
             <Route exact path = "/changePSW" element={<ChangePSW />} />
+            <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
             <Route exact path = "*" element = {<NotFound />} />
           </Routes>
       </BrowserRouter>

@@ -151,4 +151,37 @@ const sendResetPSWEmail = async (email, name) => {
     })
 }
 
-export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserByEmail, sendResetPSWEmail}
+const updateUserPSW = async (user_id, new_password) => {
+    await userModel.findByIdAndUpdate(user_id, {password: new_password})
+    return
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserByEmail, sendResetPSWEmail, updateUserPSW}

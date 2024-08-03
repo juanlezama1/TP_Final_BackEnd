@@ -85,7 +85,7 @@ const ChangePSW = () => {
 
                     <div className="row">
                         <div className="col-12 d-flex justify-content-center">
-                            <PasswordForm></PasswordForm>
+                            <PasswordForm token={token_value}></PasswordForm> 
                         </div>
                     </div>
                 </Container>
