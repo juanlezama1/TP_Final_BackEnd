@@ -7,7 +7,7 @@ const SuccessPSWChange = () => {
     return (
         <Container>
             <div className="image_container d-flex justify-content-center">
-                <img src="/images/alegria.png" alt="imagen_alegria" className='main_image' />
+                <img src="/images/alegria.png" alt="imagen_alegria" className='main_image_successPSWChange' />
             </div>
             <Main_Subtitles subtitle="Contraseña actualizada con éxito!"/>
         </Container>
