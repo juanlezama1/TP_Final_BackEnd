@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import config_vars from '../dotenv.js'
+import {logger} from './logger.js'
 
 const generate_PSWReset_Token = (email) => {
 
@@ -18,4 +19,22 @@ const generate_PSWReset_Token = (email) => {
     return URL_token
 }
 
-export {generate_PSWReset_Token}
+const verify_PSWReset_Token = (token) => {
+
+    const URL_private_key = config_vars.URL_jwt_secret
+    let decoded_token
+
+    try {
+        decoded_token = jwt.verify(token, URL_private_key)
+        return decoded_token
+    }
+
+    catch (error)
+
+    {
+        logger.warning("Intento de verificación con Token Inválido")
+        return false
+    }
+}
+
+export {generate_PSWReset_Token, verify_PSWReset_Token}

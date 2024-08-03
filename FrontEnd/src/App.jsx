@@ -3,7 +3,8 @@ import Header from './Components/Header/header'
 import Main from './Pages/Main/main'
 import ForgetPSW from './Pages/ForgetPSW/forgetPSW'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Container from 'react-bootstrap/Container'
+import ChangePSW from './Pages/ChangePSW/changePSW'
+import NotFound from './Pages/NotFound/notFound'
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
           <Routes>
             <Route exact path = "/" element={<Main />} />
             <Route exact path = "/forgetPSW" element={<ForgetPSW />} />
+            <Route exact path = "/changePSW" element={<ChangePSW />} />
+            <Route exact path = "*" element = {<NotFound />} />
           </Routes>
       </BrowserRouter>
     </>
