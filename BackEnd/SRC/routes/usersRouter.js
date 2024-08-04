@@ -38,7 +38,7 @@ usersRouter.delete('/', async (req, res) => {
     }
 })
 
-// Cliente envía su email mediante formulario de "Olvidó su contraseña?"
+// Envía correo de recuperación por email
 usersRouter.post('/resetPSW', async (req, res) => {
 
     const {email} = req.body

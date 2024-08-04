@@ -5,4 +5,10 @@ const readAllProducts = async () => {
     return all_products
 }
 
-export {readAllProducts}
+const createProduct = async (product) => {
+
+    const my_product = await productsModel.create(product)
+    return my_product
+}
+
+export {readAllProducts, createProduct}

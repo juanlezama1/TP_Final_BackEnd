@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { readAllProducts } from "../controllers/productsController.js"
+import { readAllProducts, createProduct } from "../controllers/productsController.js"
 
 const productsRouter = Router ()
 
@@ -31,6 +31,22 @@ productsRouter.get('/', async (req, res) => {
     {
         req.logger.error("Imposible leer los productos de la base de datos!")
         return res.status(500).send("Imposible leer los productos de la base de datos!")
+    }
+})
+
+// CARGA DE PRODUCTO
+productsRouter.post('/', async (req, res) => {
+
+    const {product} = req.body
+
+    try {
+        await createProduct(product)
+        res.status(200).send("Producto cargado con éxito en la DB!")
+    }
+    
+    catch (error) {
+        req.logger.error("Imposible cargar producto en la DB", error)
+        res.status(500).send("Error al cargar el producto en la DB")
     }
 })
 
