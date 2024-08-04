@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ChangePSW from './Pages/ChangePSW/changePSW'
 import NotFound from './Pages/NotFound/notFound'
 import SuccessPSWChange from './Pages/SuccessPSWChange/successPSWChange'
+import Footer from './Components/Footer/footer'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
             <Route exact path = "*" element = {<NotFound />} />
           </Routes>
+          <Footer />
       </BrowserRouter>
     </>
   )

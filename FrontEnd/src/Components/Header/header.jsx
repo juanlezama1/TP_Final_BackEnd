@@ -1,42 +1,23 @@
 import React from 'react';
-import { Dropdown, Menu } from 'antd';
+import { Dropdown} from 'antd';
 import { Link } from 'react-router-dom';
 import './header.css';
-
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/esm/Container';
 
-const items_datosmercado = [
+const items_productos = [
   {
     key: '1',
-    label: (<Link to={'./noticias'}  >Noticias de Mercado</Link>)
+    label: (<Link to={'./tasa_interes'}>Niños</Link>)
   },
   {
     key: '2',
-    label: (<Link to={'./calendario'}  >Calendario Económico</Link>)
+    label: (<Link to={'./inflacion'}  >Adolescentes</Link>)
   },
   {
     key: '3',
-    label: (<Link to={'./sentimiento'}  >Sentimiento de Mercado</Link>)
-  },
-];
-
-const items_indiceseconomicos = [
-  {
-    key: '4',
-    label: (<Link to={'./tasa_interes'}  >Tasa de Interés</Link>)
-  },
-  {
-    key: '5',
-    label: (<Link to={'./inflacion'}  >Inflación</Link>)
-  },
-];
-
-const items_herramientas = [
-  {
-    key: '6',
-    label: (<Link to={'./calculadora'}  >Calculadora financiera</Link>)
+    label: (<Link to={'./inflacion'}  >Adultos</Link>)
   },
 ];
 
@@ -56,34 +37,23 @@ const Header = () => {
           /></Link>
         <nav className="header_navbar">
           <ul className="header_navbar_list">
+
+            <Dropdown className="header_navbar_item" menu={{items: items_productos}}>
+              <a className="ant-dropdown-link">
+                PRODUCTOS
+              </a>
+            </Dropdown>
+
             <li>
-              <Link className='header_navbar_item' to={'/dollars'}>DÓLAR</Link>
+              <Link className='header_navbar_item' to={'/crypto'}>ACCESO ADMIN</Link>
             </li>
 
-            <Dropdown className="header_navbar_item" menu={{items: items_datosmercado}}>
-              <a className="ant-dropdown-link">
-                DATOS DE MERCADO
-              </a>
-            </Dropdown>
-
             <li>
-              <Link className='header_navbar_item' to={'/crypto'}>CRIPTO MÁS BARATO</Link>
+              <Link className='header_navbar_item' to={'/crypto'}>REGISTRO</Link>
             </li>
 
-            <Dropdown className="header_navbar_item" menu={{items: items_indiceseconomicos}}>
-              <a className="ant-dropdown-link">
-                ÍNDICES ECONÓMICOS
-              </a>
-            </Dropdown>
-
-            <Dropdown className="header_navbar_item" menu={{items: items_herramientas}}>
-              <a className="ant-dropdown-link">
-                HERRAMIENTAS
-              </a>
-            </Dropdown>
-
             <li>
-              <Link className='header_navbar_item' to={'/cursos'}>CURSOS</Link>
+              <Link className='header_navbar_item' to={'/cursos'}>LOGIN</Link>
             </li>
           </ul>
         </nav>
