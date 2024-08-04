@@ -9,15 +9,15 @@ import Container from 'react-bootstrap/esm/Container';
 const items_productos = [
   {
     key: '1',
-    label: (<Link to={'./tasa_interes'}>Niños</Link>)
+    label: (<Link to={'./products/kids'}>Niños</Link>)
   },
   {
     key: '2',
-    label: (<Link to={'./inflacion'}  >Adolescentes</Link>)
+    label: (<Link to={'./products/teenagers'}  >Adolescentes</Link>)
   },
   {
     key: '3',
-    label: (<Link to={'./inflacion'}  >Adultos</Link>)
+    label: (<Link to={'./products/adults'}  >Adultos</Link>)
   },
 ];
 

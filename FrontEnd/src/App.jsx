@@ -7,6 +7,9 @@ import ChangePSW from './Pages/ChangePSW/changePSW'
 import NotFound from './Pages/NotFound/notFound'
 import SuccessPSWChange from './Pages/SuccessPSWChange/successPSWChange'
 import Footer from './Components/Footer/footer'
+import KidsProducts from './Pages/KidsProducts/kidsProducts'
+import TeenagersProducts from './Pages/TeenagersProducts/teenagersProducts'
+import AdultsProducts from './Pages/AdultsProducts/adultsProducts'
 
 function App() {
 
@@ -19,6 +22,10 @@ function App() {
             <Route exact path = "/forgetPSW" element={<ForgetPSW />} />
             <Route exact path = "/changePSW" element={<ChangePSW />} />
             <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
+            <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
+            <Route exact path = "/products/kids" element={<KidsProducts />}></Route>
+            <Route exact path = "/products/teenagers" element={<TeenagersProducts />}></Route>
+            <Route exact path = "/products/adults" element={<AdultsProducts />}></Route>
             <Route exact path = "*" element = {<NotFound />} />
           </Routes>
           <Footer />
