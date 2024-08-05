@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
     return (
     
     <>
-      <Container>
+      <Container fluid>
         <Main_Titles title={Title_Value}/>
 
         <div className="image_container d-flex justify-content-center">

@@ -1,11 +1,7 @@
-@font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter.ttf') format('truetype');
-  }
-
-.title_main {
-    text-align: center;
-    font-family: 'Inter';
-    font-weight: 700;
-    margin-bottom: 0;
+.title_main_site {
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  text-align: center;
 }

@@ -13,12 +13,12 @@ const contentStyle = {
 
 const content = <div style={contentStyle} />
 
-const TeenagersProducts = () => {
+const Products = () => {
 
     const getProducts = async () => {
 
         setTimeout(async () => {
-            const response = await fetch('http://localhost:8080/api/products/category/Teenagers')
+            const response = await fetch('http://localhost:8080/api/products/')
             const my_products = await response.json()
             setLoading(false)
             setProducts(my_products)
@@ -42,11 +42,11 @@ const TeenagersProducts = () => {
             <Container fluid className="m-0 p-0 overflow-hidden">
                 <div className='row'>
                     <div className="col-12" style={{marginBottom: '15px'}}>
-                        <Main_Titles title={"Productos > Adolescentes"}></Main_Titles>
+                        <Main_Titles title={"Todos los productos"}></Main_Titles>
                     </div>
                 </div>
 
-                <div className="row d-flex flex-row justify-content-center">
+                <div className="row">
                     {products.map(product => (
                             <Link key={product._id} className='col-3 text-center text-decoration-none' to={`/products/${product._id}`}>
                                 <div className='Card'>
@@ -65,11 +65,11 @@ const TeenagersProducts = () => {
 
     else {
         return (
-            <Spin tip="Buscando productos para adolescentes..." size="large">
+            <Spin tip="Cargando Productos..." size="large">
                 {content}
             </Spin>
         )
     }
 }
 
-export default TeenagersProducts
+export default Products

@@ -60,7 +60,7 @@ const ChangePSW = () => {
 
         {
             return(
-                <Container>
+                <Container fluid>
                     <div className="row">
                         <div className="token_invalid col-12 d-flex justify-content-center">
                             <img src="./images/tristeza.png" alt="imagen_tristeza" />

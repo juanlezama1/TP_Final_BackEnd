@@ -7,7 +7,7 @@ const Footer = () => {
         <Container fluid className="p-0 overflow-hidden">
             <footer className="footer row">
                 <div className="footer_div_image col-lg-2 d-flex flex-wrap align-items-center">
-                    <img className = "footer_image img-fluid" src="images/main_logo.png" alt="logo_d'kids"></img>
+                    <img className = "footer_image img-fluid" src="/images/main_logo.png" alt="logo_d'kids"></img>
                 </div>
                 <div className="footer_div_info col-lg-3">
                     <h2 className="footer_title text-center">Información general</h2>
@@ -21,10 +21,10 @@ const Footer = () => {
                 <div className="footer_div_followus col-lg-2">
                     <h2 className="footer_title_rrss text-center">¡Seguinos!</h2>
                     <div className="footer_rrss">
-                        <a className="footer_rrss_link" href="https://www.instagram.com/coderhouse/" target="_blank"><img className="footer_rrss_image" src="./images/footer_instagram.png" alt="instagram_icon"></img></a>
-                        <a className="footer_rrss_link" href="https://www.facebook.com/Coderhouse/" target="_blank"><img className="footer_rrss_image" src="./images/footer_facebook.png" alt="facebook_icon"></img></a>
-                        <a className="footer_rrss_link" href="https://www.tiktok.com/@coderhouse" target="_blank"><img className="footer_rrss_image" src="./images/tik-tok.png" alt="tik-tok_icon"></img></a>
-                        <a className="footer_rrss_link" href="https://twitter.com/coderhouse" target="_blank"><img className="footer_rrss_image" src="./images/footer_twitter.png" alt="twitter_icon"></img></a>
+                        <a className="footer_rrss_link" href="https://www.instagram.com/coderhouse/" target="_blank"><img className="footer_rrss_image" src="/images/footer_instagram.png" alt="instagram_icon"></img></a>
+                        <a className="footer_rrss_link" href="https://www.facebook.com/Coderhouse/" target="_blank"><img className="footer_rrss_image" src="/images/footer_facebook.png" alt="facebook_icon"></img></a>
+                        <a className="footer_rrss_link" href="https://www.tiktok.com/@coderhouse" target="_blank"><img className="footer_rrss_image" src="/images/tik-tok.png" alt="tik-tok_icon"></img></a>
+                        <a className="footer_rrss_link" href="https://twitter.com/coderhouse" target="_blank"><img className="footer_rrss_image" src="/images/footer_twitter.png" alt="twitter_icon"></img></a>
                     </div>
                 </div>
                 <div className="footer_div_dondeestamos col-lg-5">
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
         
             <div className="whatsapp_button">
-                <a href="https://api.whatsapp.com/send?phone=541131443573&text=Hola%20D'Kids!" target="_blank"><img className= "whatsapp_image" src="./images/footer_whatsapp.png" alt="whatsapp_logo"></img></a>
+                <a href="https://api.whatsapp.com/send?phone=541131443573&text=Hola%20D'Kids!" target="_blank"><img className= "whatsapp_image" src="/images/footer_whatsapp.png" alt="whatsapp_logo"></img></a>
             </div>
         </Container>
     )

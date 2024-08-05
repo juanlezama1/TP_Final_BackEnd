@@ -5,7 +5,7 @@ import './notFound.css'
 const NotFound = () => {
 
     return (
-        <Container>
+        <Container fluid>
             <Main_Titles title={"404 - Página No Encontrada"}/>
             <div className="row">
                 <div className="main_error col-12">

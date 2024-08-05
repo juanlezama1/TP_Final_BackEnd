@@ -8,7 +8,7 @@ const Products_carousel = () => {
 
 return (
   <Container fluid className='p-0'>
-    <Carousel style={{backgroundColor: '#5eb0df', height: '500px'}} autoplay autoplaySpeed={900} dotPosition='left' className='d-flex flex-column justify-content-center text-center align-items-center' pauseOnHover={false}>
+    <Carousel style={{backgroundColor: '#5eb0df', height: '460px'}} autoplay autoplaySpeed={850} dotPosition='left' className='d-flex flex-column justify-content-center text-center align-items-center' pauseOnHover={false}>
         <div className="row d-flex flex-row justify-content-center">
           <div className="col-4 d-flex flex-row justify-content-center">
             <Card style={{cursor: 'default', width: '250px', backgroundColor: '#5eb0df'}} hoverable cover={<img alt="example" src="/images/auto.png" />}>

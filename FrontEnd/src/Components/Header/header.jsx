@@ -39,9 +39,9 @@ const Header = () => {
           <ul className="header_navbar_list">
 
             <Dropdown className="header_navbar_item" menu={{items: items_productos}}>
-              <a className="ant-dropdown-link">
+              <Link className='header_navbar_item ant-dropdown-link' to={'/products/all'}>
                 PRODUCTOS
-              </a>
+              </Link>
             </Dropdown>
 
             <li>

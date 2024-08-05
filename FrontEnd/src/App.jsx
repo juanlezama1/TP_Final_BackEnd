@@ -10,6 +10,7 @@ import Footer from './Components/Footer/footer'
 import KidsProducts from './Pages/KidsProducts/kidsProducts'
 import TeenagersProducts from './Pages/TeenagersProducts/teenagersProducts'
 import AdultsProducts from './Pages/AdultsProducts/adultsProducts'
+import Products from './Pages/Products/products'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route exact path = "/changePSW" element={<ChangePSW />} />
             <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
             <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
+            <Route exact path = "/products/all" element={<Products />}></Route>
             <Route exact path = "/products/kids" element={<KidsProducts />}></Route>
             <Route exact path = "/products/teenagers" element={<TeenagersProducts />}></Route>
             <Route exact path = "/products/adults" element={<AdultsProducts />}></Route>
