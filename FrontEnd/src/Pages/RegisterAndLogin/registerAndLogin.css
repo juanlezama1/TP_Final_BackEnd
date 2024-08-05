@@ -1,0 +1,8 @@
+.login_image {
+
+    background-image: url('images/coraje.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+}   
