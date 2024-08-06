@@ -14,7 +14,7 @@ const onFinishFailed = (errorInfo) => {
 const RegisterAndLogin = () => {
 
     return (
-            <Container fluid>
+            <Container fluid style={{height: '460px', backgroundColor: '#5eb0df'}} className='d-flex flex-column justify-content-center'> 
                 <div className="row" style={{backgroundColor: '#5eb0df'}}>
                     <div className="col-4 image_div d-flex flex-row justify-content-center align-items-center">
                         <img src="/images/coraje.jpg" alt="login_image" style={{width: '100%'}}/>
@@ -30,7 +30,7 @@ const RegisterAndLogin = () => {
                         </div>
 
                         <div className="row" style={{marginTop: '0px'}}>
-                            <div className="col-8" style={{height: '200px', marginTop: '20px', wordWrap: 'break-word'}}>
+                            <div className="col-8" style={{height: '200px', marginTop: '28px', paddingTop: '10px', wordWrap: 'break-word'}}>
                                 <Form name="basic" initialValues={{remember: true}} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
                                     <Form.Item wrapperCol={{offset: 2, span: 18}} className='d-flex flex-row justify-content-center' label="Email" name="username" rules={[{required: true, message: 'Por favor ingrese su email!'}]}>
                                         <Input />
@@ -47,7 +47,7 @@ const RegisterAndLogin = () => {
                                     </Form.Item>
                                 </Form>
                                 <div className='d-flex flex-row justify-content-center'>
-                                    <p className='forget_password'>¿Olvidó su contraseña?</p>
+                                    <p className='forget_password'><a href="/forgetPSW">¿Olvidó su contraseña?</a></p>
                                 </div>
                             </div>
 

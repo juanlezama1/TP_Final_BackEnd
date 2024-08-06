@@ -1,8 +1,8 @@
 import { Button, Form, Input } from 'antd';
 import { useState } from 'react';
 import { Spin } from 'antd';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, Zoom, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const layout = {
     labelCol: {
@@ -38,7 +38,7 @@ const EmailForm = ({handle_finish}) => {
         else {
           setButton(true)
           setSpinner(false)
-          toast.error("Usuario inexistente!", {position: 'bottom-right', autoClose: 1000})
+          toast.error("Usuario Inexistente!", {theme: 'colored', position: 'top-right', transition: Zoom, pauseOnHover: false, autoClose: 3000})
         }
       };
 
@@ -76,11 +76,11 @@ validateMessages={validateMessages}
   }}
 >
   {buttonIsVisible && (  <Button type="primary" htmlType="submit">
-    Recuperar Correo!
+    Reestablecer Contraseña
   </Button>)
   }
 
-  {spinnerIsVisible && ( <Spin />)}
+  {spinnerIsVisible && (<Spin style={{backgroundColor: '#5eb0df', color: 'whitesmoke'}} tip="Enviando Email..." size="large"> <div style={{padding: 50, backgroundColor: '#5eb0df', borderRadius: 4, color: 'whitesmoke'}} /> </Spin>)}
 
 </Form.Item>
 </Form>

@@ -5,14 +5,6 @@ import { Link } from 'react-router-dom'
 import Main_Titles from '../../Components/Main_Titles/main_titles'
 const { Meta } = Card
 
-const contentStyle = {
-    padding: 50,
-    background: 'rgba(0, 0, 0, 0.05)',
-    borderRadius: 4,
-  }
-
-const content = <div style={contentStyle} />
-
 const KidsProducts = () => {
 
     const getProducts = async () => {
@@ -66,7 +58,7 @@ const KidsProducts = () => {
     else {
         return (
             <Spin tip="Buscando productos para niños..." size="large">
-                {content}
+                <div style={{padding: 50, background: 'rgba(0, 0, 0, 0.05)', borderRadius: 4}} />
             </Spin>
         )
     }
