@@ -4,6 +4,7 @@ import {readFileSync} from 'fs'
 import __dirname from '../path.js'
 import { generate_PSWReset_Token } from "../utils/jwt.js"
 import config_vars from "../dotenv.js"
+import { createHash } from "../utils/bcrypt.js"
 
 // Obtengo todos los usuarios
 const getAllUsers = async () => {
@@ -151,37 +152,36 @@ const sendResetPSWEmail = async (email, name) => {
     })
 }
 
+// Actualiza la contraseña del usuario
 const updateUserPSW = async (user_id, new_password) => {
     await userModel.findByIdAndUpdate(user_id, {password: new_password})
     return
 }
 
+// Verifico si los datos ingresados para un registro son correctos:
+// - Algún dato no está definido
+// - La edad es no-numérica
+// - Las contraseñas no coinciden
 
+const isUserDataValid = (user) => {
+    
+    const user_data = [user.first_name, user.last_name, user.age, user.email, user.password, user.password_confirm]
 
+    if (user_data.includes(null) || user_data.includes(undefined) || isNaN(user.age) || user.password != user.password_confirm)
+        return false
+    return true
+}
 
+// Crea un nuevo usuario en la base de datos
 
+const createNewUser = async (user) => {
 
+    // Encripto la contraseña antes de guardarla
+    const password_encrypted = createHash(user.password)
+    user.password = password_encrypted
 
+    const new_user = await userModel.create(user)
+    return new_user
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserByEmail, sendResetPSWEmail, updateUserPSW}
+export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserByEmail, sendResetPSWEmail, updateUserPSW, isUserDataValid, createNewUser}

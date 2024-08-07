@@ -14,7 +14,7 @@ const onFinishFailed = (errorInfo) => {
 const RegisterAndLogin = () => {
 
     return (
-            <Container fluid style={{height: '460px', backgroundColor: '#5eb0df'}} className='d-flex flex-column justify-content-center'> 
+            <Container fluid style={{height: '535px', backgroundColor: '#5eb0df'}} className='d-flex flex-column justify-content-center'> 
                 <div className="row" style={{backgroundColor: '#5eb0df'}}>
                     <div className="col-4 image_div d-flex flex-row justify-content-center align-items-center">
                         <img src="/images/coraje.jpg" alt="login_image" style={{width: '100%'}}/>

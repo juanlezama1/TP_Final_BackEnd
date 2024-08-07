@@ -18,28 +18,22 @@ import 'react-toastify/dist/ReactToastify.css';
 
     return (
     
-      <Container fluid style={{backgroundColor: '#5eb0df'}}>
+      <Container fluid className='d-flex flex-column justify-content-center' style={{backgroundColor: '#5eb0df', height: '68vh'}}>
         {!sentEmailField && (
           <div>
-            <Main_Titles title={"Olvidaste tu contraseña?"}/>
             <div className="row">
               <div className="col-6">
-                <div className="d-flex flex-column align-items-center">
-                  <img src={'/images/anxiety.jpg'} alt="imagen_ansiedad" className='main_image' />
-                    <Main_Subtitles style={{margin: '3px', paddingBottom:'23px', color: '#0f276f'}} subtitle={"No hay problema, recuperala desde acá!"}/>
+                <div className="d-flex flex-row justify-content-center">
+                  <img style={{margin: '20px'}} src={'/images/anxiety.jpg'} alt="imagen_ansiedad" className='main_image' />
                 </div>
               </div>
-              <div className="col-6 d-flex flex-column justify-content-center">      
-                <div className="row">
-                  <div className="col-12">
-                    <div className='d-flex'>
-                      <EmailForm handle_finish={handle_finish} />
-                    </div>
-                  </div>
-                </div>
+              <div className="col-6 d-flex flex-column justify-content-center align-items-start">
+                <Main_Titles title={"Olvidaste tu contraseña?"}/>
+                <Main_Subtitles style={{marginBottom: '50px', paddingBottom:'0px', color: '#0f276f'}} subtitle={"No hay problema, recuperala desde acá!"}/>
+                <EmailForm handle_finish={handle_finish} />
               </div>
             </div>
-        </div>)}
+          </div>)}
 
         {sentEmailField && (
           <div>

@@ -1,5 +1,5 @@
 import { Router } from "express"
-import {getAllUsers, deleteOldUsers, getUserByEmail, sendResetPSWEmail, updateUserPSW} from "../controllers/usersController.js"
+import {getAllUsers, deleteOldUsers, getUserByEmail, sendResetPSWEmail, updateUserPSW, isUserDataValid, createNewUser} from "../controllers/usersController.js"
 import {logger} from '../utils/logger.js'
 import {verify_PSWReset_Token } from "../utils/jwt.js"
 import { comparePSW, createHash } from "../utils/bcrypt.js"
@@ -126,6 +126,46 @@ usersRouter.put('/changePSW', async (req, res) => {
             req.logger.error("Error al actualizar la contraseña, imposible conectar con la DB")
             return res.status(500).send("Error al actualizar la contraseña, imposible conectar con la DB")
         }
+    }
+})
+
+// Guarda un cliente en la base de datos por primera vez (REGISTRO)
+
+usersRouter.post('/', async (req, res) => {
+
+    const {first_name, last_name, age, email, password, password_confirm} = req.body
+    const new_user = {first_name, last_name, age, email, password, password_confirm}
+
+    // Verifico si todos los datos fueron enviados de manera correcta
+
+    if (!isUserDataValid(new_user)) {
+        req.logger.warning("Intento de registro con datos inválidos")
+        return res.status(400).send("Verificar datos enviados")
+    }
+
+    // Verifico si el email ya existe en la base de datos
+    
+    try {
+        const previous_user = await getUserByEmail(email)
+        if (previous_user)
+            return res.status(409).send("Email ya cargado en DB")
+    }
+
+    catch (error) {
+        req.logger.error("Error al acceder a la base de datos")
+        return res.status(500).send("Error al acceder a la base de datos", error)
+    }
+
+    // Si los datos son válidos, y el usuario no existía en la BD anteriormente, lo guardo.
+
+    try {
+        await createNewUser(new_user)
+        return res.status(200).send("Nuevo usuario guardado correctamente")
+    }
+
+    catch (error) {
+        req.logger.error("Error al acceder a la base de datos")
+        return res.status(500).send("Error al acceder a la base de datos")
     }
 })
 
