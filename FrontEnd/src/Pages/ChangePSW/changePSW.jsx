@@ -60,7 +60,7 @@ const ChangePSW = () => {
 
         {
             return(
-                <Container fluid>
+                <Container fluid style={{backgroundColor: '#5eb0df'}}>
                     <div className="row">
                         <div className="token_invalid col-12 d-flex justify-content-center">
                             <img src="./images/tristeza.png" alt="imagen_tristeza" />
@@ -75,7 +75,7 @@ const ChangePSW = () => {
 
             return (
             
-                <Container>
+                <Container fluid style={{backgroundColor: '#5eb0df'}}>
                      <Main_Subtitles className="subtitle" subtitle={"Ingrese su nueva contraseña"}/>
                      <div className="row">
                         <div className="col-12 d-flex justify-content-center">

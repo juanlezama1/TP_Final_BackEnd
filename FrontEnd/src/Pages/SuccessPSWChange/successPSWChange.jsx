@@ -5,7 +5,7 @@ import './successPSWChange.css'
 const SuccessPSWChange = () => {
 
     return (
-        <Container>
+        <Container fluid style={{backgroundColor: '#5eb0df'}}>
             <div className="image_container d-flex justify-content-center">
                 <img src="/images/alegria.png" alt="imagen_alegria" className='main_image_successPSWChange' />
             </div>

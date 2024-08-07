@@ -12,6 +12,7 @@ import TeenagersProducts from './Pages/TeenagersProducts/teenagersProducts'
 import AdultsProducts from './Pages/AdultsProducts/adultsProducts'
 import Products from './Pages/Products/products'
 import RegisterAndLogin from './Pages/RegisterAndLogin/registerAndLogin'
+import Register from './Pages/Register/register'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             <Route exact path = "/products/teenagers" element={<TeenagersProducts />}></Route>
             <Route exact path = "/products/adults" element={<AdultsProducts />}></Route>
             <Route exact path = "/Register_and_Login" element={<RegisterAndLogin />}></Route>
+            <Route exact path = "/Register" element={<Register />}></Route>
             <Route exact path = "*" element = {<NotFound />} />
           </Routes>
           <Footer />

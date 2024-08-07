@@ -1,5 +1,5 @@
 import {Button, Form, Input, Spin} from 'antd'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Zoom } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 const formItemLayout = {labelCol: {xs: {span: 24}, sm: {span: 8}}, wrapperCol: {xs: {span: 24}, sm: {span: 16}}}
@@ -30,7 +30,7 @@ const PasswordForm = ({token}) => {
             toast.error("Servidor no responde!", {position: 'bottom-right', autoClose: 13000})
 
         else if (response.status == 400)
-            toast.warn("La nueva contraseña no puede ser igual a la anterior!", {position: 'bottom-right', autoClose: 4000})
+            toast.warn("La nueva contraseña no puede ser igual a la anterior!", {theme: 'colored', transition: Zoom, pauseOnHover: false})
 
         else
             window.location.assign("http://localhost:5173/changePSW")
