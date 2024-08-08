@@ -3,6 +3,7 @@ import {getAllUsers, deleteOldUsers, getUserByEmail, sendResetPSWEmail, updateUs
 import {logger} from '../utils/logger.js'
 import {verify_PSWReset_Token } from "../utils/jwt.js"
 import { comparePSW, createHash } from "../utils/bcrypt.js"
+import passport from "passport"
 
 const usersRouter = Router ()
 
@@ -169,5 +170,12 @@ usersRouter.post('/', async (req, res) => {
         return res.status(500).send("Error al acceder a la base de datos")
     }
 })
+
+usersRouter.get('/pruebitaJWT', passport.authenticate('jwt', {session: false}), async (req, res) => {
+    console.log("entré a pruebitaJWT")
+})
+
+
+
 
 export default usersRouter
