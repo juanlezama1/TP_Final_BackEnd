@@ -1,7 +1,7 @@
 import { Router } from "express"
 import {getAllUsers, deleteOldUsers, getUserByEmail, sendResetPSWEmail, updateUserPSW, isUserDataValid, createNewUser} from "../controllers/usersController.js"
 import {logger} from '../utils/logger.js'
-import {verify_PSWReset_Token } from "../utils/jwt.js"
+import {generateAccessToken, verify_PSWReset_Token } from "../utils/jwt.js"
 import { comparePSW, createHash } from "../utils/bcrypt.js"
 import passport from "passport"
 
@@ -171,11 +171,51 @@ usersRouter.post('/', async (req, res) => {
     }
 })
 
+// Logueo de cliente
+
+usersRouter.post('/login', async (req, res) => {
+
+    const {email, password} = req.body
+
+    // Verifico si el usuario existe
+
+    try {
+        const my_user = await getUserByEmail (email)
+
+        // Caso que ese usuario no exista
+        if (!my_user) {
+            req.logger.warning("Intento de acceso con email no identificado")
+            return res.status(401).send("Credenciales inválidas")
+        }
+
+        // Caso que la contraseña sea incorrecta
+        else if (!comparePSW(password, my_user.password)) {
+            req.logger.warning("Intento de acceso con contraseña incorrecta")
+            return res.status(401).send("Contraseña incorrecta")
+        }
+
+        // Si existe, y la contraseña es correcta, genero el token JWT correspondiente y lo cargaré en las cookies
+
+        else {
+            const accessToken = generateAccessToken(email)
+
+            // Mando la respuesta, y configuro la cookie con el token JWT
+            
+            req.logger.info("Usuario logueado")
+            return res.status(200).cookie('jwtCookie', accessToken, {maxAge: 12*60*60*1000, signed: true}).send("Token Generado!")
+        }        
+    }
+
+    catch (error)
+
+    {
+        req.logger.error("Imposible conectar con DB")
+        return res.status(500).send("Imposible conectar con DB")
+    }
+})
+
 usersRouter.get('/pruebitaJWT', passport.authenticate('jwt', {session: false}), async (req, res) => {
     console.log("entré a pruebitaJWT")
 })
-
-
-
 
 export default usersRouter

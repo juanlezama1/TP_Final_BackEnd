@@ -37,4 +37,21 @@ const verify_PSWReset_Token = (token) => {
     }
 }
 
-export {generate_PSWReset_Token, verify_PSWReset_Token}
+const generateAccessToken = (email) => {
+
+    // Contenido del token
+    const token_content = {email}
+
+    // El tiempo de expiración del token (12 HORAS)
+    const accessToken_expiracyTime = '12h'
+
+    // La clave secreta del token
+    const accessToken_privateKey = config_vars.cookies_secret
+
+    // Genero el Token con su firma
+    const accessToken = jwt.sign(token_content, accessToken_privateKey, {expiresIn: accessToken_expiracyTime})
+
+    return accessToken
+}
+
+export {generate_PSWReset_Token, verify_PSWReset_Token, generateAccessToken}

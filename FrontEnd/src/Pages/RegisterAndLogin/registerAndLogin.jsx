@@ -1,14 +1,11 @@
 import Container from 'react-bootstrap/esm/Container'
 import './registerAndLogin.css'
 import Main_Titles from '../../Components/Main_Titles/main_titles'
-import { Button, Checkbox, Form, Input } from 'antd'
+import { Button, Form, Input } from 'antd'
 
-const onFinish = (values) => {
-    console.log('Success:', values)
-}
-
-const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo)
+const onFinish = async (values) => {
+    const response = await fetch('http://localhost:8080/api/users/login', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: values.email, password: values.password})})
+    console.log(response.status)
 }
 
 const RegisterAndLogin = () => {
@@ -31,8 +28,8 @@ const RegisterAndLogin = () => {
 
                         <div className="row" style={{marginTop: '0px'}}>
                             <div className="col-8" style={{height: '200px', marginTop: '28px', paddingTop: '10px', wordWrap: 'break-word'}}>
-                                <Form name="basic" initialValues={{remember: true}} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
-                                    <Form.Item wrapperCol={{offset: 2, span: 18}} className='d-flex flex-row justify-content-center' label="Email" name="username" rules={[{required: true, message: 'Por favor ingrese su email!'}]}>
+                                <Form name="basic" initialValues={{remember: true}} onFinish={onFinish} autoComplete="off">
+                                    <Form.Item wrapperCol={{offset: 2, span: 18}} className='d-flex flex-row justify-content-center' label="Email" name="email" rules={[{required: true, message: 'Por favor ingrese su email!'}]}>
                                         <Input />
                                     </Form.Item>
                                     
