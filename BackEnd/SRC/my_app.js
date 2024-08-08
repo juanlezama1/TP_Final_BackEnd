@@ -34,5 +34,3 @@ my_app.use('/api', indexRouter)
 const my_server = my_app.listen(PORT, () => {
     logger.info(`Escuchando solicitudes en el puerto ${PORT} ...`)
 })
-
-console.log(path.join(__dirname, '/public/images/Products'))

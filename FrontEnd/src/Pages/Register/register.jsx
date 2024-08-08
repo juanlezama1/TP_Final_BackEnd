@@ -152,7 +152,7 @@ const Register = () => {
                         </div>
                         <div className="col-6 d-flex flex-column justify-content-center">
                             <Main_Titles title={"Usuario creado con éxito!"}/>
-                            <Main_Subtitles subtitle="Proceda a loguearse con normalidad"/>
+                            <Main_Subtitles subtitle="Puede loguearse cuando lo desee"/>
                         </div>
                     </div>
                 </Container>

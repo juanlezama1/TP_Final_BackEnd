@@ -61,6 +61,7 @@ const deleteOldUsers = async () => {
 
     const all_users = await getAllUsers()
     const fecha_actual = Date.now()
+    let qty_usersDeleted = 0
 
     for (const user of all_users)
     
@@ -68,11 +69,13 @@ const deleteOldUsers = async () => {
         if ((fecha_actual - user.last_connection) > 2*24*60*60*1000)
         
         {
-            console.log(`pasé por el usuario ${user.first_name}`)
             await deleteNotificationEmail(user.email, user.first_name)
             await userModel.findByIdAndDelete(user._id)
+            qty_usersDeleted++
         }            
     }
+
+    return qty_usersDeleted
 }
 
 // Encuentra el usuario asociado a un email

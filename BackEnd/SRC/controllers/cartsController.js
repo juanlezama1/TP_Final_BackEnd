@@ -5,4 +5,9 @@ const createCart = async (new_cart) => {
     return new_cart
 }
 
-export {createCart}
+const deleteCartById = async (cart_id) => {
+    await cartsModel.findByIdAndDelete(cart_id)
+    return
+}
+
+export {createCart, deleteCartById}

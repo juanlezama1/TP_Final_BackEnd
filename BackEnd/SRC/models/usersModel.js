@@ -1,5 +1,5 @@
 import {Schema, model} from "mongoose"
-import {createCart} from '../controllers/cartsController.js'
+import {createCart, deleteCartById} from '../controllers/cartsController.js'
 
 // Prototipo de un usuario en la DB
 const userSchema = new Schema ({
@@ -62,6 +62,22 @@ userSchema.pre("save", async function (next) {
         next(error)
     }
 })
+
+// Antes de borrar un usuario, que le borre el carrito asociado.
+userSchema.pre("findOneAndDelete", async function (next) {
+
+    try {
+        const user = await this.model.findOne(this.getQuery())
+        await deleteCartById(user.cartID)
+        next()
+    }
+
+    catch (error) {
+        logger.error("Error al borrar el carrito del usuario!")
+        next(error)
+    }
+})
+
 
 // Si pido los usuarios, que se expandan los carritos
 userSchema.pre("find", async function (next) {

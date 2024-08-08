@@ -25,9 +25,10 @@ usersRouter.get('/', async (req, res) => {
 // Elimino usuarios sin actividad por 2 días y les notifico por e-mail
 usersRouter.delete('/', async (req, res) => {
 
+    // Devuelvo la cantidad de usuarios eliminados
     try {
-        await deleteOldUsers()
-        res.status(200).send("Usuarios sin actividad eliminados con éxito!")
+        const qty_users_deleted = await deleteOldUsers()
+        res.status(200).send({qty_users_deleted})
     }
 
     catch (error)

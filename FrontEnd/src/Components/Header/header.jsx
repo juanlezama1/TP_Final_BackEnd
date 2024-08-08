@@ -45,7 +45,7 @@ const Header = () => {
             </Dropdown>
 
             <li>
-              <Link className='header_navbar_item' to={'/crypto'}>ACCESO ADMIN</Link>
+              <Link className='header_navbar_item' to={'/admin_access'}>ACCESO ADMIN</Link>
             </li>
 
             <li>
