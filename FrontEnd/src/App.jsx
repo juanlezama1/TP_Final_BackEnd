@@ -19,36 +19,6 @@ import { useEffect, useState } from 'react'
 
 function App() {
 
-  // // Cuando ingreso, verifico si mi usuario está logueado y si es Admin
-
-  // [isAdmin, setIsAdmin] = useState(false)
-  // [isLogged, setIsLogged] = useState(false)
-
-  // const verifyToken = async (token) => {
-  //   const response = await fetch('http://localhost:8080/api/users/testing', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token})})
-  //   if (response.status == 200)
-  //     return true
-  //   else
-  //     return false
-  // }
-
-  // useEffect(() => {
-  //     const my_cookie = Cookies.get('loginCookie')
-  //     if (!my_cookie) {
-  //       setIsAdmin(false)
-  //       setIsLogged(false)
-  //     }
-
-  //     else {
-  //       if verifyToken(my_cookie)
-  //     }
-  // })
-  
-
-  // if(Cookies.get('loginCookie'))
-  //   user_isLogged = true
-
-
   return (
     <>
       <BrowserRouter>

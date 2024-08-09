@@ -213,13 +213,7 @@ usersRouter.post('/login', async (req, res) => {
         req.logger.error("Imposible conectar con DB")
         return res.status(500).send("Imposible conectar con DB")
     }
-})  
-
-usersRouter.post('/testing', async (req, res) => {
-    return res.status(200).send("HOLA")
-}) 
-
-
+})
 
 export default usersRouter
 
