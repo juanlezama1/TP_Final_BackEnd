@@ -1,10 +1,11 @@
 import React from 'react';
-import { Dropdown} from 'antd';
+import { Dropdown, Avatar, Badge} from 'antd';
 import { Link } from 'react-router-dom';
 import './header.css';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/esm/Container';
+import {ShoppingCartOutlined} from '@ant-design/icons'
 
 const items_productos = [
   {
@@ -49,10 +50,14 @@ const Header = () => {
             </li>
 
             <li>
-              <Link className='header_navbar_item' to={'/crypto'}>REGISTRO</Link>
+              <a href="#">
+                <Badge className='header_navbar_item' size='middle' count={5}>
+                  <ShoppingCartOutlined style={{fontSize: '20px'}}/>
+                </Badge>
+              </a>
             </li>
 
-            <li>
+            <li style={{marginLeft: '5px'}}>
               <Link className='header_navbar_item' to={'/register_and_login'}>REGISTRO/LOGIN</Link>
             </li>
           </ul>
