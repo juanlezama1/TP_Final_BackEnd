@@ -197,12 +197,13 @@ usersRouter.post('/login', async (req, res) => {
         // Si existe, y la contraseña es correcta, genero el token JWT correspondiente y lo cargaré en las cookies
 
         else {
-            const accessToken = generateAccessToken(email)
+            const accessToken = generateAccessToken(email, my_user.category)
 
             // Mando la respuesta, y configuro la cookie con el token JWT
             
             req.logger.info("Usuario logueado")
-            return res.status(200).cookie('jwtCookie', accessToken, {maxAge: 12*60*60*1000, signed: true}).send("Token Generado!")
+
+            return res.status(200).cookie('loginCookie', accessToken, {maxAge: 12*60*60*1000, signed: true}).send("Token Generado!")
         }        
     }
 
@@ -212,10 +213,9 @@ usersRouter.post('/login', async (req, res) => {
         req.logger.error("Imposible conectar con DB")
         return res.status(500).send("Imposible conectar con DB")
     }
-})
-
-usersRouter.get('/pruebitaJWT', passport.authenticate('jwt', {session: false}), async (req, res) => {
-    console.log("entré a pruebitaJWT")
-})
+})  
 
 export default usersRouter
+
+
+

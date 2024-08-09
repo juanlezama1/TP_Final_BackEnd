@@ -37,10 +37,10 @@ const verify_PSWReset_Token = (token) => {
     }
 }
 
-const generateAccessToken = (email) => {
+const generateAccessToken = (email, category) => {
 
     // Contenido del token
-    const token_content = {email}
+    const token_content = {email, category}
 
     // El tiempo de expiración del token (12 HORAS)
     const accessToken_expiracyTime = '12h'

@@ -20,8 +20,9 @@ mongoose.connect(config_vars.mongo_db_url)
 
 // Middlewares
 my_app.use(cors({
-    origin: '*', // Permite solicitudes desde cualquier origen
+    origin: 'http://localhost:5173', // Permite solicitudes desde cualquier origen
     methods: 'GET,POST,PUT,DELETE', // Permite los métodos especificados
+    credentials: true
   }))
 
 my_app.use(logger_middleware)
