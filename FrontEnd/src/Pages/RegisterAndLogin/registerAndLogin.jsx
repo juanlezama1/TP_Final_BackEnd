@@ -31,7 +31,7 @@ const RegisterAndLogin = () => {
                 toast.success("Logueado correctamente, redirigiendo...", {hideProgressBar: true, pauseOnHover: false, theme: 'colored', position: 'top-right', transition: Zoom, autoClose: 1300})
                 setLoading(false)
                 setTimeout(() => {
-                    navigate('/')
+                    window.location.href = 'http://localhost:5173/'
                 }, 2000)
             }
         }, 1000)

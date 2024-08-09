@@ -215,6 +215,12 @@ usersRouter.post('/login', async (req, res) => {
     }
 })  
 
+usersRouter.post('/testing', async (req, res) => {
+    return res.status(200).send("HOLA")
+}) 
+
+
+
 export default usersRouter
 
 
