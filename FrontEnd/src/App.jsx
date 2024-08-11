@@ -14,8 +14,7 @@ import Products from './Pages/Products/products'
 import RegisterAndLogin from './Pages/RegisterAndLogin/registerAndLogin'
 import Register from './Pages/Register/register'
 import Admin from './Pages/Admin/admin'
-import Cookies from 'js-cookie'
-import { useEffect, useState } from 'react'
+import SelectedProduct from './Pages/Selected_Product/selected_product'
 
 function App() {
 
@@ -33,6 +32,7 @@ function App() {
             <Route exact path = "/products/kids" element={<KidsProducts />}></Route>
             <Route exact path = "/products/teenagers" element={<TeenagersProducts />}></Route>
             <Route exact path = "/products/adults" element={<AdultsProducts />}></Route>
+            <Route exact path = "/products/:pid" element={<SelectedProduct />}></Route>
             <Route exact path = "/Register_and_Login" element={<RegisterAndLogin />}></Route>
             <Route exact path = "/Register" element={<Register />}></Route>
             <Route exact path = "/admin_access" element={<Admin />}></Route>
