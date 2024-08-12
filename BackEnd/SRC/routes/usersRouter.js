@@ -1,9 +1,10 @@
 import { Router } from "express"
 import {getAllUsers, deleteOldUsers, getUserByEmail, sendResetPSWEmail, updateUserPSW, isUserDataValid, createNewUser} from "../controllers/usersController.js"
 import {logger} from '../utils/logger.js'
-import {generateAccessToken, verify_PSWReset_Token } from "../utils/jwt.js"
+import {generateAccessToken, verify_AccessToken, verify_PSWReset_Token } from "../utils/jwt.js"
 import { comparePSW, createHash } from "../utils/bcrypt.js"
 import passport from "passport"
+import { findCartById } from "../controllers/cartsController.js"
 
 const usersRouter = Router ()
 
@@ -181,6 +182,7 @@ usersRouter.post('/login', async (req, res) => {
 
     try {
         const my_user = await getUserByEmail (email)
+        const user_cart = await findCartById (my_user.cartID)
 
         // Caso que ese usuario no exista
         if (!my_user) {
@@ -197,13 +199,13 @@ usersRouter.post('/login', async (req, res) => {
         // Si existe, y la contraseña es correcta, genero el token JWT correspondiente y lo cargaré en las cookies
 
         else {
-            const accessToken = generateAccessToken(email, my_user.category)
+            const accessToken = generateAccessToken(email, my_user.category, user_cart.products)
 
             // Mando la respuesta, y configuro la cookie con el token JWT
             
             req.logger.info("Usuario logueado")
 
-            return res.status(200).cookie('loginCookie', accessToken, {maxAge: 12*60*60*1000, signed: true}).send("Token Generado!")
+            return res.status(200).cookie('loginCookie', accessToken, {maxAge: 12*60*60*1000}).send("Token Generado!")
         }        
     }
 
@@ -215,7 +217,19 @@ usersRouter.post('/login', async (req, res) => {
     }
 })
 
+usersRouter.post('/verifyAccessToken', async (req, res) => {
+    const {token} = req.body
+    const decoded_token = verify_AccessToken(token)
+
+    if (decoded_token)
+        res.status(200).send(decoded_token)
+
+    else
+        res.status(400).send("TOKEN INVÁLIDO")
+})
+
+usersRouter.get('/authenticateGitHub', passport.authenticate('github', { scope: ['user:email'] }))
+
+usersRouter.get('/authenticateGitHubCallBack', passport.authenticate("github",), (req, res) => {})
+
 export default usersRouter
-
-
-

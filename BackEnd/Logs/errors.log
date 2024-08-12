@@ -42,3 +42,6 @@ error: Imposible conectar con DB res.status(...).warning is not a function {"sta
 error: Imposible conectar con DB res.status(...).warning is not a function {"stack":"TypeError: res.status(...).warning is not a function\n    at file:///C:/Users/lezam/Desktop/Desaf%C3%ADos/Proyecto%20Final/BackEnd/SRC/routes/usersRouter.js:194:36\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}
 error: Imposible conectar con DB
 error: Imposible conectar con DB
+error: Imposible conectar con DB
+error: Imposible conectar con DB
+error: Imposible conectar con DB accessToken.length is not a function {"stack":"TypeError: accessToken.length is not a function\n    at file:///C:/Users/lezam/Desktop/Desaf%C3%ADos/Proyecto%20Final/BackEnd/SRC/routes/usersRouter.js:202:80\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}

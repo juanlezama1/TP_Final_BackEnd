@@ -15,32 +15,35 @@ import RegisterAndLogin from './Pages/RegisterAndLogin/registerAndLogin'
 import Register from './Pages/Register/register'
 import Admin from './Pages/Admin/admin'
 import SelectedProduct from './Pages/Selected_Product/selected_product'
+import CartComponentContext from './Components/Context/context'
 
 function App() {
 
+  CartComponentContext
+
   return (
-    <>
-      <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route exact path = "/" element={<Main />} />
-            <Route exact path = "/forgetPSW" element={<ForgetPSW />} />
-            <Route exact path = "/changePSW" element={<ChangePSW />} />
-            <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
-            <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
-            <Route exact path = "/products/all" element={<Products />}></Route>
-            <Route exact path = "/products/kids" element={<KidsProducts />}></Route>
-            <Route exact path = "/products/teenagers" element={<TeenagersProducts />}></Route>
-            <Route exact path = "/products/adults" element={<AdultsProducts />}></Route>
-            <Route exact path = "/products/:pid" element={<SelectedProduct />}></Route>
-            <Route exact path = "/Register_and_Login" element={<RegisterAndLogin />}></Route>
-            <Route exact path = "/Register" element={<Register />}></Route>
-            <Route exact path = "/admin_access" element={<Admin />}></Route>
-            <Route exact path = "*" element = {<NotFound />} />
-          </Routes>
-          <Footer />
-      </BrowserRouter>
-    </>
+      <CartComponentContext>
+        <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route exact path = "/" element={<Main />} />
+              <Route exact path = "/forgetPSW" element={<ForgetPSW />} />
+              <Route exact path = "/changePSW" element={<ChangePSW />} />
+              <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
+              <Route exact path = "/successPSWChange" element={<SuccessPSWChange />}></Route>
+              <Route exact path = "/products/all" element={<Products />}></Route>
+              <Route exact path = "/products/kids" element={<KidsProducts />}></Route>
+              <Route exact path = "/products/teenagers" element={<TeenagersProducts />}></Route>
+              <Route exact path = "/products/adults" element={<AdultsProducts />}></Route>
+              <Route exact path = "/products/:pid" element={<SelectedProduct />}></Route>
+              <Route exact path = "/Register_and_Login" element={<RegisterAndLogin />}></Route>
+              <Route exact path = "/Register" element={<Register />}></Route>
+              <Route exact path = "/admin_access" element={<Admin />}></Route>
+              <Route exact path = "*" element = {<NotFound />} />
+            </Routes>
+            <Footer />
+        </BrowserRouter>
+      </CartComponentContext>
   )
 }
 

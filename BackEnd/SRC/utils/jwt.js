@@ -32,15 +32,14 @@ const verify_PSWReset_Token = (token) => {
     catch (error)
 
     {
-        logger.warning("Intento de verificación con Token Inválido")
         return false
     }
 }
 
-const generateAccessToken = (email, category) => {
+const generateAccessToken = (email, category, cart) => {
 
     // Contenido del token
-    const token_content = {email, category}
+    const token_content = {email, category, cart}
 
     // El tiempo de expiración del token (12 HORAS)
     const accessToken_expiracyTime = '12h'
@@ -54,4 +53,22 @@ const generateAccessToken = (email, category) => {
     return accessToken
 }
 
-export {generate_PSWReset_Token, verify_PSWReset_Token, generateAccessToken}
+const verify_AccessToken = (token) => {
+
+    const token_key = config_vars.cookies_secret
+    let decoded_token
+
+    try {
+        decoded_token = jwt.verify(token, token_key)
+        return decoded_token
+    }
+
+    catch (error)
+
+    {
+        logger.warning("Intento de verificación con Token Inválido")
+        return false
+    }
+}
+
+export {generate_PSWReset_Token, verify_PSWReset_Token, generateAccessToken, verify_AccessToken}

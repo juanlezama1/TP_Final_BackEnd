@@ -9,6 +9,7 @@ import path from 'path'
 import initializatePassportStrategies from './config/passport/passport.js'
 import passport from 'passport'
 import cookieParser from 'cookie-parser'
+import { generateAccessToken, verify_AccessToken } from './utils/jwt.js'
 
 const my_app = express ()
 const PORT = config_vars.port

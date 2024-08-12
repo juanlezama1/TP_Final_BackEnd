@@ -14,7 +14,9 @@ const config_vars = {
     email_user: process.env.EMAIL_USER,
     email_password: process.env.EMAIL_PASSWORD,
     URL_jwt_secret: process.env.URL_JWT_SECRET,
-    front_port: process.env.FRONT_PORT
+    front_port: process.env.FRONT_PORT,
+    github_id: process.env.GITHUB_ID,
+    github_secret: process.env.GITHUB_SECRET
 }
 
 export default config_vars
