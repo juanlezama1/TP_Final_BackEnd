@@ -16,6 +16,8 @@ import Register from './Pages/Register/register'
 import Admin from './Pages/Admin/admin'
 import SelectedProduct from './Pages/Selected_Product/selected_product'
 import CartComponentContext from './Components/Context/context'
+import Logout from './Components/Logout/logout'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
 
@@ -39,8 +41,10 @@ function App() {
               <Route exact path = "/Register_and_Login" element={<RegisterAndLogin />}></Route>
               <Route exact path = "/Register" element={<Register />}></Route>
               <Route exact path = "/admin_access" element={<Admin />}></Route>
+              <Route exact path = "/logout" element={<Logout />}></Route>
               <Route exact path = "*" element = {<NotFound />} />
             </Routes>
+            <ToastContainer />
             <Footer />
         </BrowserRouter>
       </CartComponentContext>

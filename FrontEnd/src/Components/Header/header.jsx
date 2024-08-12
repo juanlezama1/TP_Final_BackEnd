@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/esm/Container';
 import {ShoppingCartOutlined} from '@ant-design/icons'
 import {CartContext} from '../Context/context'
+import { ToastContainer, Zoom, toast } from 'react-toastify'
 
 const items_productos = [
   {
@@ -63,6 +64,11 @@ const Header = () => {
     }
   }
 
+  const notAdmin = (() => {
+
+    toast.error("Sólo para Administradores!", {hideProgressBar: true, pauseOnHover: false, theme: 'colored', position: 'top-right', transition: Zoom, autoClose: 1300})
+  })
+
   useEffect(() => {
 
       // Obtengo todas mis cookies
@@ -99,6 +105,7 @@ const Header = () => {
   if (!loading) {
 
     return (
+      <>
       <Container fluid className='p-0 overflow-hidden'>
       <Row>
         <Col className='header-index'>
@@ -118,9 +125,18 @@ const Header = () => {
                 </Link>
               </Dropdown>
 
-              <li>
-                <Link className='header_navbar_item' to={'/admin_access'}>ACCESO ADMIN</Link>
-              </li>
+            {!isLogged && (
+                          <li>
+                              <Link className='header_navbar_item' onClick={notAdmin} to={'#'}>ACCESO ADMIN</Link>
+                          </li>
+            )}
+
+
+            {isLogged && (
+                          <li>
+                            <Link className='header_navbar_item' to={'/admin_access'}>ACCESO ADMIN</Link>
+                          </li>
+            )}
 
               <li>
                 <a href="#">
@@ -130,15 +146,28 @@ const Header = () => {
                 </a>
               </li>
 
-              <li style={{marginLeft: '5px'}}>
-                <Link className='header_navbar_item' to={'/register_and_login'}>REGISTRO/LOGIN</Link>
-              </li>
+            {!isLogged && (
+                            <li style={{marginLeft: '5px'}}>
+                            <Link className='header_navbar_item' to={'/register_and_login'}>REGISTRO/LOGIN</Link>
+                          </li>
+            )}
+
+
+            {isLogged && (
+                            <li style={{marginLeft: '5px'}}>
+                            <Link className='header_navbar_item' to={'/logout'}>LOGOUT</Link>
+                          </li>
+            )}
+
             </ul>
           </nav>
         </div>
         </Col>
       </Row>
-    </Container>)}
+    </Container>
+    <ToastContainer />
+    </>
+    )}
 
   else {
     return (
