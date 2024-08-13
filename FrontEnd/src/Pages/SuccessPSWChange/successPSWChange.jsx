@@ -2,6 +2,7 @@ import Container from "react-bootstrap/esm/Container"
 import Main_Subtitles from "../../Components/Main_Subtitle/subtitle"
 import './successPSWChange.css'
 import Main_Titles from "../../Components/Main_Titles/main_titles"
+import { ToastContainer } from "react-toastify"
 
 const SuccessPSWChange = () => {
 
@@ -17,6 +18,7 @@ const SuccessPSWChange = () => {
                     <Main_Subtitles subtitle="Ya puede utilizarla con normalidad"/>
                 </div>
             </div>
+            <ToastContainer />
         </Container>
     )
 }

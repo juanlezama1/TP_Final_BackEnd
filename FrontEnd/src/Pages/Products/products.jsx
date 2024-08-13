@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/esm/Container'
 import { Card, Spin } from 'antd'
 import { Link } from 'react-router-dom'
 import Main_Titles from '../../Components/Main_Titles/main_titles'
+import { ToastContainer } from "react-toastify"
 const { Meta } = Card
 
 const contentStyle = {
@@ -59,15 +60,19 @@ const Products = () => {
                             </Link>
                     ))}
                 </div>
+                <ToastContainer />
             </Container>
         )
     }
 
     else {
         return (
+            <>
             <Spin tip="Cargando Productos..." size="large">
                 {content}
             </Spin>
+            <ToastContainer />
+            </>
         )
     }
 }

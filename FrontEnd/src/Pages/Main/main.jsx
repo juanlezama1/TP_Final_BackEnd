@@ -1,6 +1,7 @@
 import Products_carousel from "../../Components/Products_carousel/products_carousel"
 import Main_Titles from '../../Components/Main_Titles/main_titles'
 import Container from "react-bootstrap/esm/Container"
+import { ToastContainer } from "react-toastify"
 
 const Main = () => {
 
@@ -12,7 +13,7 @@ const Main = () => {
                     <Products_carousel/>
                 </div>
             </div>
-
+        <ToastContainer />
         </Container>
     )
 }

@@ -25,9 +25,12 @@ const Register = () => {
 
         {
             return (
+                <>
                 <Spin style={{backgroundColor: '#5eb0df', color: 'whitesmoke'}} tip="Registrando usuario..." size="large"> 
                     <div style={{padding: 50, backgroundColor: '#5eb0df', borderRadius: 4, color: 'whitesmoke'}} /> 
                 </Spin>
+                <ToastContainer />
+                </>
             )
         }
     
@@ -79,6 +82,7 @@ const Register = () => {
                             </Form>
                         </div>
                     </div>
+                    <ToastContainer />
                 </Container>
             )
         }
@@ -155,6 +159,7 @@ const Register = () => {
                             <Main_Subtitles subtitle="Puede loguearse cuando lo desee"/>
                         </div>
                     </div>
+                    <ToastContainer />
                 </Container>
             )
         } 

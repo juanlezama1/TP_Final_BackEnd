@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container"
@@ -7,8 +7,10 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 import {Spin} from 'antd'
 import Main_Titles from '../../Components/Main_Titles/main_titles'
 import Main_Subtitles from '../../Components/Main_Subtitle/subtitle'
+import {toast, ToastContainer, Zoom} from 'react-toastify'
 
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons'
+import { CartContext } from "../../Components/Context/context";
 
 let images = [
 
@@ -29,7 +31,9 @@ const SelectedProduct = () => {
     const [loading, setLoading] = useState (true)
     const [product, setProduct] = useState (null)
     const [quantity, setQuantity] = useState (0)
-
+    const {cart_qty, setCartQty, cart, setCart, isLogged, setLoggedIn} = useContext(CartContext)
+    const [addingProduct, setAddingProduct] = useState(false)
+  
     const decreaseQuantity = () => {
         if (quantity>0)
             setQuantity(quantity-1)
@@ -40,6 +44,27 @@ const SelectedProduct = () => {
     const increaseQuantity = () => {
         if (quantity<product.stock)
             setQuantity(quantity+1)
+
+        return
+    }
+
+    const addProduct = async () => {
+
+        if(!isLogged) {
+            toast.error("No estás logueado!", {theme: 'colored', transition: Zoom, hideProgressBar: true, pauseOnHover: false, autoClose: 900})
+            return
+        }
+
+        else {
+            setAddingProduct(true)
+            // (FETCH AL BACK PARA ACTUALIZAR EL CARRITO DEL USUARIO)
+            
+            setCartQty(cart_qty + quantity)
+
+
+            setAddingProduct(false)
+            
+        }
 
         return
     }
@@ -108,7 +133,7 @@ const SelectedProduct = () => {
                         </div>
 
                         <div className="d-flex flex-row justify-content-center buying_sector m-5">
-                            <button className="m-5">
+                            <button onClick={addProduct} className="m-5">
                                 AGREGAR AL CARRITO
                             </button>
 
@@ -118,6 +143,7 @@ const SelectedProduct = () => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
             </Container>
         )
     }
@@ -125,17 +151,14 @@ const SelectedProduct = () => {
     else
         return (
 
+            <>
             <Spin tip="Cargando detalle de producto..." size="large">
                 <div style={{padding: 50, background: 'rgba(0, 0, 0, 0.05)', borderRadius: 4}}>
                 </div>
             </Spin>
+            <ToastContainer />
+            </>
         )
 }
 
 export default SelectedProduct
-
-
-
-
-
-

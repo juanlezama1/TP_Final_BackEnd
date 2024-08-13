@@ -2,6 +2,7 @@ import Container from "react-bootstrap/esm/Container"
 import Main_Subtitles from "../Main_Subtitle/subtitle"
 import { useContext, useEffect } from "react"
 import { CartContext } from "../Context/context"
+import {ToastContainer} from 'react-toastify'
 
 const Logout = () => {
 
@@ -29,6 +30,7 @@ const Logout = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </Container>
     )
 }

@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/esm/Container'
 import Main_Titles from '../../Components/Main_Titles/main_titles'
 import './notFound.css'
+import { ToastContainer } from 'react-toastify'
 
 const NotFound = () => {
 
@@ -11,6 +12,7 @@ const NotFound = () => {
                 <div className="main_error col-12">
                 </div>
             </div>
+            <ToastContainer />
         </Container>
     )
 }

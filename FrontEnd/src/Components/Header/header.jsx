@@ -53,6 +53,8 @@ const Header = () => {
         setPremium(true)
         setAdmin(false)
       }
+
+      console.log(isAdmin)
     }
 
     else {
@@ -125,16 +127,13 @@ const Header = () => {
                 </Link>
               </Dropdown>
 
-            {!isLogged && (
-                          <li>
-                              <Link className='header_navbar_item' onClick={notAdmin} to={'#'}>ACCESO ADMIN</Link>
-                          </li>
-            )}
-
-
-            {isLogged && (
+            {isAdmin? (
                           <li>
                             <Link className='header_navbar_item' to={'/admin_access'}>ACCESO ADMIN</Link>
+                          </li>
+            ): (
+                          <li>
+                            <Link className='header_navbar_item' onClick={notAdmin} to={'#'}>ACCESO ADMIN</Link>
                           </li>
             )}
 
@@ -165,13 +164,12 @@ const Header = () => {
         </Col>
       </Row>
     </Container>
-    <ToastContainer />
     </>
     )}
 
   else {
     return (
-      "CARGANDO"
+      "HOLA"
     )
   }
 }

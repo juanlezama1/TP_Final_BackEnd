@@ -44,7 +44,6 @@ function App() {
               <Route exact path = "/logout" element={<Logout />}></Route>
               <Route exact path = "*" element = {<NotFound />} />
             </Routes>
-            <ToastContainer />
             <Footer />
         </BrowserRouter>
       </CartComponentContext>

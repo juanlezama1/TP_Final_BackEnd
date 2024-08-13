@@ -6,6 +6,7 @@ import Main_Subtitles from "../../Components/Main_Subtitle/subtitle"
 import PasswordForm from "../../Components/PasswordForm/passwordForm";
 import {Flex, Spin} from 'antd'
 import './changePSW.css'
+import { ToastContainer } from "react-toastify";
 
 const ChangePSW = () => {
 
@@ -67,6 +68,7 @@ const ChangePSW = () => {
                         </div>
                     </div>
                     <Main_Subtitles subtitle={"Token inválido o vencido"}/>
+                    <ToastContainer />
                 </Container>    
             )
         }
@@ -88,6 +90,7 @@ const ChangePSW = () => {
                             <PasswordForm token={token_value}></PasswordForm> 
                         </div>
                     </div>
+                    <ToastContainer />
                 </Container>
             )
         }
