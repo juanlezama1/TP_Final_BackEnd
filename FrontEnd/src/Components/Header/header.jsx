@@ -26,7 +26,7 @@ const items_productos = [
 
 const Header = () => {
 
-  const {cart_qty, setCartQty, cart, setCart, isLogged, setLoggedIn, isAdmin, setAdmin, isPremium, setPremium } = useContext(CartContext)
+  const {cart, setCart, isLogged, setLoggedIn, isAdmin, setAdmin, setPremium } = useContext(CartContext)
   const [loading, setLoading] = useState(true)
 
   let userLogged = undefined
@@ -35,8 +35,7 @@ const Header = () => {
     const response = await fetch('http://localhost:8080/api/users/verifyAccessToken', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token})})
     if (response.status == 200) {
       userLogged = await response.json()
-      setLoggedIn(true)
-      setCartQty(userLogged.cart.length)
+      setLoggedIn(true) 
       setCart(userLogged.cart)
       
       if(userLogged.category == 'Standard_User') {
@@ -53,8 +52,6 @@ const Header = () => {
         setPremium(true)
         setAdmin(false)
       }
-
-      console.log(isAdmin)
     }
 
     else {
@@ -62,7 +59,6 @@ const Header = () => {
       setAdmin(false)
       setLoggedIn(false)
       setCart([])
-      setCartQty(0)
     }
   }
 
@@ -99,7 +95,6 @@ const Header = () => {
         setAdmin(false)
         setLoggedIn(false)
         setCart([])
-        setCartQty(0)
         setLoading(false)
       }
   }, [])
@@ -138,8 +133,8 @@ const Header = () => {
             )}
 
               <li>
-                <a href="#">
-                  <Badge className='header_navbar_item' size='middle' count={cart_qty} showZero='true'>
+                <a href="/checkout">
+                  <Badge className='header_navbar_item' size='middle' count={cart.reduce((previous, current) => previous.quantity + current.quantity, 0)} showZero='true'>
                     <ShoppingCartOutlined style={{fontSize: '20px'}}/>
                   </Badge>
                 </a>

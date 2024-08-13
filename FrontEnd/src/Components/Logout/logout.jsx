@@ -6,13 +6,12 @@ import {ToastContainer} from 'react-toastify'
 
 const Logout = () => {
 
-    const {cart_qty, setCartQty, cart, setCart, isLogged, setLoggedIn, isAdmin, setAdmin, isPremium, setPremium } = useContext(CartContext)
+    const {cart, setCart, isLogged, setLoggedIn, isAdmin, setAdmin, isPremium, setPremium } = useContext(CartContext)
 
     useEffect(() => {
 
         // Borro la cookie y pongo los valores de carrito/login a cero
 
-        setCartQty(0)
         setCart([])
         setLoggedIn(false)
         setAdmin(false)

@@ -8,7 +8,6 @@ import {Spin} from 'antd'
 import Main_Titles from '../../Components/Main_Titles/main_titles'
 import Main_Subtitles from '../../Components/Main_Subtitle/subtitle'
 import {toast, ToastContainer, Zoom} from 'react-toastify'
-
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons'
 import { CartContext } from "../../Components/Context/context";
 
@@ -27,12 +26,19 @@ let images = [
 
 const SelectedProduct = () => {
 
-    const {pid} = useParams()
-    const [loading, setLoading] = useState (true)
-    const [product, setProduct] = useState (null)
-    const [quantity, setQuantity] = useState (0)
-    const {cart_qty, setCartQty, cart, setCart, isLogged, setLoggedIn} = useContext(CartContext)
-    const [addingProduct, setAddingProduct] = useState(false)
+    const {pid} = useParams() // ID del producto
+    const [loading, setLoading] = useState (true) // Carga inicial del producto
+    const [product, setProduct] = useState (null) // Detalle del producto
+    const [quantity, setQuantity] = useState (0) // Cantidad clickeada (no confirmada)
+    const {cart, setCart, isLogged, setLoggedIn} = useContext(CartContext) // Contexto
+    const [addingProduct, setAddingProduct] = useState(false) // Agregando al carrito
+    
+    for (const cart_product of cart) {
+        if (cart_product.id_prod === pid) {
+            setQuantity(cart_product.quantity)
+            break; // Sale del bucle
+        }
+    }
   
     const decreaseQuantity = () => {
         if (quantity>0)
@@ -57,16 +63,34 @@ const SelectedProduct = () => {
 
         else {
             setAddingProduct(true)
-            // (FETCH AL BACK PARA ACTUALIZAR EL CARRITO DEL USUARIO)
-            
-            setCartQty(cart_qty + quantity)
 
+            // let cart_copy = cart
+
+            // for (let i=0; i < cart.length; i++)
+
+            // {
+            //     if (cart[i].id_prod == pid)
+                
+            //     {
+            //         cart_copy[i].quantity = quantity
+            //         console.log(cart_copy)
+            //         break
+            //     }
+            // }
+
+            // // Caso que no estaba en el carrito
+
+            // if (cart_copy == cart)
+
+            // {
+            //     cart_copy.push({id_prod: pid, quantity})
+            //     console.log(cart_copy)
+            // }
 
             setAddingProduct(false)
+            return
             
         }
-
-        return
     }
       
     useEffect(() => {
