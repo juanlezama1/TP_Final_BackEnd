@@ -12,7 +12,6 @@ cartsRouter.post('/updateCartByUserID', async (req, res) => {
     try {
         const cart_id = await getUserCartID(email) // Obtengo el ID del carrito a actualizar
         const updated_cart = await updateCartContent(cart_id, cart)  // Actualizo el contenido del carrito
-        console.log(updated_cart)
         return res.status(200).send(updated_cart)
     }
 
