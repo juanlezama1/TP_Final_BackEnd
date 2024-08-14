@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Container from 'react-bootstrap/esm/Container'
 import { Card, Spin } from 'antd'
 import { Link } from 'react-router-dom'
 import Main_Titles from '../../Components/Main_Titles/main_titles'
 import { ToastContainer } from "react-toastify"
+import { CartContext } from "../../Components/Context/context"
 const { Meta } = Card
 
 const contentStyle = {
@@ -31,6 +32,7 @@ const Products = () => {
 // Apenas ingresa, tiene que traer del back todos los productos
     useEffect(() => {
         getProducts()
+        
     }, [])
 
     const [products, setProducts] = useState(null)

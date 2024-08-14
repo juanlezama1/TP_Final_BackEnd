@@ -182,7 +182,6 @@ usersRouter.post('/login', async (req, res) => {
 
     try {
         const my_user = await getUserByEmail (email)
-        const user_cart = await findCartById (my_user.cartID)
 
         // Caso que ese usuario no exista
         if (!my_user) {
@@ -199,6 +198,7 @@ usersRouter.post('/login', async (req, res) => {
         // Si existe, y la contraseña es correcta, genero el token JWT correspondiente y lo cargaré en las cookies
 
         else {
+            const user_cart = await findCartById (my_user.cartID)
             const accessToken = generateAccessToken(email, my_user.category, user_cart.products)
 
             // Mando la respuesta, y configuro la cookie con el token JWT
@@ -213,7 +213,7 @@ usersRouter.post('/login', async (req, res) => {
 
     {
         req.logger.error("Imposible conectar con DB")
-        return res.status(500).send("Imposible conectar con DB")
+        return res.status(500).send("Imposible conectar con DB", error)
     }
 })
 
@@ -227,7 +227,7 @@ usersRouter.post('/verifyAccessToken', async (req, res) => {
     else
         res.status(400).send("TOKEN INVÁLIDO")
 })
-
+ 
 usersRouter.get('/authenticateGitHub', passport.authenticate('github', { scope: ['user:email'] }))
 
 usersRouter.get('/authenticateGitHubCallBack', passport.authenticate("github",), (req, res) => {})

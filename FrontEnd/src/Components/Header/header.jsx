@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Dropdown, Avatar, Badge} from 'antd';
+import { Dropdown, Badge} from 'antd';
 import { Link } from 'react-router-dom';
 import './header.css';
 import Row from 'react-bootstrap/Row'
@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/esm/Container';
 import {ShoppingCartOutlined} from '@ant-design/icons'
 import {CartContext} from '../Context/context'
-import { ToastContainer, Zoom, toast } from 'react-toastify'
+import {Zoom, toast } from 'react-toastify'
 
 const items_productos = [
   {
@@ -26,7 +26,7 @@ const items_productos = [
 
 const Header = () => {
 
-  const {cart, setCart, isLogged, setLoggedIn, isAdmin, setAdmin, setPremium } = useContext(CartContext)
+  const {cart, setCart, isLogged, setLoggedIn, isAdmin, setAdmin, setPremium, email, setEmail } = useContext(CartContext)
   const [loading, setLoading] = useState(true)
 
   let userLogged = undefined
@@ -36,21 +36,25 @@ const Header = () => {
     if (response.status == 200) {
       userLogged = await response.json()
       setLoggedIn(true) 
-      setCart(userLogged.cart)
+      setCart(userLogged.cart) 
+      setEmail(userLogged.email)
       
       if(userLogged.category == 'Standard_User') {
         setAdmin(false)
         setPremium(false)
+        return
       }
 
       else if (userLogged.category == 'Admin') {
         setAdmin(true)
         setPremium(false)
+        return
       }
 
       else {
         setPremium(true)
         setAdmin(false)
+        return
       }
     }
 
@@ -134,7 +138,7 @@ const Header = () => {
 
               <li>
                 <a href="/checkout">
-                  <Badge className='header_navbar_item' size='middle' count={cart.reduce((previous, current) => previous.quantity + current.quantity, 0)} showZero='true'>
+                  <Badge className='header_navbar_item' size='middle' count={cart.reduce((previous, current) => previous + current.quantity, 0)} showZero='true'>
                     <ShoppingCartOutlined style={{fontSize: '20px'}}/>
                   </Badge>
                 </a>
@@ -164,7 +168,7 @@ const Header = () => {
 
   else {
     return (
-      "HOLA"
+      "LOADING"
     )
   }
 }

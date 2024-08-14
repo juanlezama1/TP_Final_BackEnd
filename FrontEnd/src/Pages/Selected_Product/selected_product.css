@@ -1,0 +1,35 @@
+.main_buttons{
+    background:#44b8db;
+    color:#fff;
+    border:none;
+    position:relative;
+    font-size:15px;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  .main_buttons:hover{
+    background:#fff;
+    color:#1AAB8A;
+  }
+  .main_buttons:before,.main_buttons:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+  }
+  .main_buttons:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .main_buttons:hover:before,.main_buttons:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }

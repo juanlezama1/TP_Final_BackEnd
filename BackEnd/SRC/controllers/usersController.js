@@ -187,4 +187,13 @@ const createNewUser = async (user) => {
     return new_user
 }
 
-export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserByEmail, sendResetPSWEmail, updateUserPSW, isUserDataValid, createNewUser}
+// Obtiene el CartID de un usuario
+
+const getUserCartID = async (email) => {
+
+    const my_user = await getUserByEmail(email)
+    const cartID = my_user.cartID
+    return (cartID)
+}
+
+export {getAllUsers, deleteOldUsers, deleteNotificationEmail, getUserByEmail, sendResetPSWEmail, updateUserPSW, isUserDataValid, createNewUser, getUserCartID}

@@ -15,4 +15,11 @@ const findCartById = async (cart_id) => {
     return my_cart
 }
 
-export {createCart, deleteCartById, findCartById}
+// Debe actualizar el contenido del carrito
+const updateCartContent = async (cart_id, cart) => {
+
+    const new_cart = await cartsModel.findByIdAndUpdate(cart_id, {products: cart}, {new: true})
+    return new_cart
+}
+
+export {createCart, deleteCartById, findCartById, updateCartContent}
