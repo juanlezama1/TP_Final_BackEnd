@@ -25,7 +25,7 @@ const Logout = () => {
                 <div className="col-12" style={{backgroundColor: '#5eb0df'}}>
                     <Main_Subtitles subtitle={"Te desconectaste con éxito, hasta la próxima!"}/>
                     <div className="image d-flex flew-row justify-content-center">
-                        <img style={{height: '70vh', marginBottom: '15px'}} src="/images/goodbye.jpg" alt="" />
+                        <img style={{height: '62vh', marginBottom: '15px'}} src="/images/goodbye.jpg" alt="" />
                     </div>
                 </div>
             </div>
